@@ -1,5 +1,5 @@
 body {
-  font: 14px/24px "PT Sans Narrow", Arial, sans-serif;
+  font: 14px/24px "PT Sans Narrow", "Arial", sans-serif;
   font-weight: bold;
   text-transform: uppercase;
   color: #ffffff;
@@ -46,6 +46,32 @@ body {
   text-decoration: none;
 }
 
+.active {
+  position: relative;
+  background-color: none;
+}
+
+.active::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 20px;
+  left: 20px;
+  height: 5px;
+  background-color: #ffffff;
+}
+
+.active a:hover {
+  background: none;
+}
+
+.active span {
+  display: block;
+  padding: 25px 20px;
+  color: #ffffff;
+  text-decoration: none;
+}
+
 .user-block {
   float: right;
   max-width: 110px;
@@ -70,7 +96,7 @@ body {
   left: 22px;
   width: 25px;
   height: 18px;
-  background: url(../img/sprite1.png) no-repeat scroll -19px -154px;
+  background: url(../img/sprite.png) no-repeat scroll 1px -154px;
   opacity: 0.3;
 }
 
@@ -314,7 +340,7 @@ body {
   font-size: 0;
   text-decoration: none;
   vertical-align: top;
-  background: #000000 url(../img/sprite1.png) no-repeat center;
+  background: #000000 url(../img/sprite.png) no-repeat center;
   transition: background-position 0.5s, background-color 0.5s;
 }
 
@@ -323,27 +349,27 @@ body {
 }
 
 .social-btn-vk {
-  background-position: -12px -22px;
+  background-position: 8px -22px;
 }
 
 .social-btn-fb {
-  background-position: -5px -222px;
+  background-position: 15px -222px;
 }
 
 .social-btn-inst {
-  background-position: -8px -102px;
+  background-position: 11px -102px;
 }
 
 .social-btn-vk:hover {
-  background-position: -12px 14px;
+  background-position: 8px 14px;
 }
 
 .social-btn-fb:hover {
-  background-position: -5px -180px;
+  background-position: 15px -180px;
 }
 
 .social-btn-inst:hover {
-  background-position: -8px -60px;
+  background-position: 11px -60px;
 }
 
 .footer-copyright {
@@ -366,6 +392,181 @@ body {
   background-color: #ffffff;
   color: #000000;
 
+}
+
+/*popup login*/
+
+.modal-login {
+  position: fixed;
+  top: 120px;
+  left: 50%;
+  z-index: 20;
+  display: none;
+  width: 300px;
+  padding: 50px 80px;
+  color: #000000;
+  background: #f8f3f0 url(../img/background-block.jpg);
+  transform: translateX(-50%);
+  box-shadow: 0 30px 50px rgba(0, 0, 0, 0.7);
+}
+
+.modal-map {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  z-index: 10;
+  display: none;
+  width: 766px;
+  height: 561px;
+  background: #e9e5dc url(../img/map.jpg);
+  border: 7px solid white;
+  box-shadow: 0 30px 50px rgba(0, 0, 0, 0.7);
+  transform: translate(-50%, -50%);
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: none;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.modal-close {
+  position: absolute;
+  top: 0;
+  right: -34px;
+  width: 22px;
+  height: 22px;
+  font-size: 0;
+  background-color: transparent;
+  border: 0;
+  outline: 0;
+  cursor: pointer;
+}
+
+.modal-close::before,
+.modal-close::after {
+  content: "";
+  position: absolute;
+  top: 10px;
+  left: 2px;
+  width: 19px;
+  height: 3px;
+  background-color: #d0d0d0;
+  border-radius: 1px;
+}
+
+.modal-close::before {
+  transform: rotate(45deg);
+}
+
+.modal-close::after {
+  transform: rotate(-45deg);
+}
+
+.modal-title {
+  margin: 0;
+  margin-bottom: 20px;
+  font-size: 30px;
+  line-height: 42px;
+}
+.modal-login p {
+  margin: 0;
+  margin-bottom: 14px;
+}
+
+.modal-login .login-form {
+  margin-top: 30px;
+  margin-bottom: 10px;
+}
+
+.login-form input[type="text"],
+.login-form input[type="password"] {
+  width: 236px;
+  margin: 0;
+  margin-bottom: 10px;
+  padding: 10px 40px 10px 20px;
+  font-size: 14px;
+  line-height: 24px;
+  font-family: "PT Sans Narrow", "Arial", sans-serif;
+  color: #000000;
+  text-transform: uppercase;
+  background-color: #f9f6f3;
+  border: 2px solid #000000;
+  outline: none;
+}
+
+.login-form input:focus {
+  border-color: #663d15;
+}
+
+.login-form input.icon-user {
+  background: url(../img/sprite.png) no-repeat 100% -260px;
+}
+
+.login-form input.icon-password {
+  background: url(../img/sprite.png) no-repeat 100% -295px;
+}
+
+.login-form .restore {
+  float: right;
+  color: #000000;
+}
+
+.login-form .restore:hover {
+  text-decoration: none;
+}
+
+.login-form .btn {
+  width: 100%;
+  margin-top: 15px;
+}
+
+.login-checkbox input[type="checkbox"] {
+  display: none;
+}
+
+.login-checkbox {
+  position: relative;
+  padding-left: 30px;
+  cursor: pointer;
+}
+
+.login-checkbox:hover {
+  color: #663d15;
+}
+
+.login-checkbox input[type="checkbox"] + .checkbox-indicator {
+  position: absolute;
+  top: -2px;
+  left: 0;
+  width: 17px;
+  height: 17px;
+  border: 2px solid #000000;
+}
+
+.login-checkbox input[type="checkbox"]:checked + .checkbox-indicator::before,
+.login-checkbox input[type="checkbox"]:checked + .checkbox-indicator::after {
+  content: "";
+  position: absolute;
+  top: 8px;
+  left: 1px;
+  width: 15px;
+  height: 2px;
+  background-color: #000000;
+}
+
+.login-checkbox input[type="checkbox"]:checked + .checkbox-indicator::before
+{
+  transform: rotate(45deg);
+}
+
+.login-checkbox input[type="checkbox"]:checked + .checkbox-indicator::after
+{
+  transform: rotate(-45deg);
 }
 
 .clearfix::after {

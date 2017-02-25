@@ -15,7 +15,7 @@
         <ul class="main-navigation-list">
           <li><a href="#">Информация</a></li>
           <li><a href="#">Новости</a></li>
-          <li><a href="#">Прайс-лист</a></li>
+          <li class="active"><span>Прайс-лист</span></li>
           <li><a href="#">Магазин</a></li>
           <li><a href="#">Контакты</a></li>
         </ul>
@@ -114,5 +114,26 @@
       </div>
     </div>
   </footer>
+  <div class="modal-login">
+    <button class="modal-close" type="button" title="Закрыть">Закрыть</button>
+    <h2 class="modal-title">Личный кабинет</h2>
+    <p>Введите свой логин и пароль</p>
+    <form action="#" class="login-form" method="post">
+      <input type="text" class="icon-user" name="login" placeholder="Логин">
+      <input type="password" class="icon-password" name="password" placeholder="Пароль">
+      <label class="login-checkbox">
+        <input type="checkbox" name="remember">
+        <span class="checkbox-indicator"></span>
+        Запомнить меня
+      </label>
+      <a href="#" class="restore">Я забыл пароль!</a>
+      <button class="btn" type="submit">Войти</button>
+    </form>
+  </div>
+  <div class="modal-map">
+    <button class="modal-close" type="button" title="Закрыть">Закрыть</button>
+    <div class="google-map"></div>
+  </div>
+  <div class="modal-overlay"></div>
 </body>
 </html>

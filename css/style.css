@@ -40,10 +40,27 @@ body {
 }
 
 .main-navigation-list a {
+  position: relative;
   display: block;
   padding: 25px 20px;
   color: #ffffff;
   text-decoration: none;
+}
+
+.main-navigation-list a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  right: 50%;
+  height: 5px;
+  background-color: #ffffff;
+  transition: left 0.3s, right 0.3s;
+}
+
+.main-navigation-list a:hover::after {
+  left: 0;
+  right: 0;
 }
 
 .active {
@@ -51,7 +68,7 @@ body {
   background-color: none;
 }
 
-.active::after {
+.active::before {
   content: "";
   position: absolute;
   bottom: 0;
